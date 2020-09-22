@@ -1,0 +1,35 @@
+@import 'typo_styles';
+@import 'mixins';
+@import 'extend';
+
+// Hello! 
+// Please read the README.md first and then please check out the other files before this one! Thanks!
+
+// As you can see from the top I have added @import for each scss file. This allows all the content from those files to make sense here. 
+// In this file I will make a few examples of how you can use veriables, maps, mixins and extend to ease your styling work.
+
+@mixin padding ($vert, $hori) {          // Not the best example, but its pretty straightforward.
+    padding-top: $vert;
+    padding-bottom: $vert;
+    padding-right: $hori;
+    padding-left: $hori;
+}
+
+h1 {
+    color: $pop-of-color;                  // I referance the veriable I made in _typo_styles
+    font-family: $sans-serif;
+    font-size: $h1-size;
+    font-weight: map-get($font-weight, bold);   // I target the map and the key to get bold text
+    @include padding(2rem, auto)                // Add the mixin
+}
+
+p {
+    font-size: $main-p;
+    color: $text-color;
+}
+
+footer {
+    @extend p;                          // extending the properties of p
+    @include padding(1rem, auto);       // Add the mixin
+    text-transform: uppercase;   
+}

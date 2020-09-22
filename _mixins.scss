@@ -1,0 +1,44 @@
+// Mixins
+// Mixins allow you to define styles that can be re-used throughout your stylesheet. 
+// Example: You have a butt load of unordered lists on your site and they come along with default styles from the html (dots, padding and margin).
+// You dread putting in the exact same lines of codes to every ul or ol again, and again. Fear no more! Here you can use Mixins!
+// Simply make a mixin and give it a name, give it some styling rules like so:
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+// Then go to your selector for the ul and type in "@include reset-list();" like so:
+
+.ul {
+    @include reset-list();
+}
+
+// But now you ask, why does () show up on the end of the name of the mixin? Good question! 
+// In there you can add arguments. Lets take an example: 
+// You have a lot div elements you wish to make into circles and want these circles to vary in size AND color. 
+// Here you can use Mixins and add arguments!
+
+@mixin circle($amount, $bg) {  // Here we make a mixin, give it a name and decide the arguments, you can have many arguments. Here I made two.
+    height: $amount;            // I need to connect the argument to the value. 
+    width: $amount;
+    border-radius: $amount / 2; // yes, sass can do math! 
+    background-color: $bg;      // Here I connect the argument "$bg" to the background color.
+}
+
+// Now lets put this in action! 
+// Now I want to turn two divs into circles. I want one to be 200px and the other 400px. I want them to have different colors.
+// All I have got to do is to add @include, then the name of the mixin (circle) and then inside the brackets the values I desire.
+
+.div-circle-1 {
+    @include circle(200px, cyan)
+}
+
+.div-circle-2 {
+    @include circle(400px, orange)
+}
+
+// Now we have two nice lookin different circles in small readable code. To maintain the main sass code clear, we might want to have a seperate -
+// sass file with mixins, variables and more. Then import the extra sass files into the main one and there referance mixins and variables. 

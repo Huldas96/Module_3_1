@@ -1,0 +1,56 @@
+// colors
+// Here I have listed all of the colors I will use. 
+// To use these variables I can code into the main.scss "background-color: $primary-color;" or "color: $pop-of-color;"
+// And maybe in the final touches of the project I want to change the "$primary-color".
+//Instead of going trough the whole code and changing where this color appears, I only have to come here and change the value. 
+
+$primary-color: #3F4836;
+$secondary-color: #6EAF6E;
+$neutral-color: #8F8F6D;
+$off-white: #beb8aa;
+$pop-of-color: #3A8786;
+$text-color: #221933;
+
+
+
+// Headings size
+// Here I have pre-defined some heading sizes for easy-breezy-beautiful-covergirl changes.
+// How to use it: "font-size: $h1-size;"
+
+$h1-size: 22px;
+$h2-size: 18px;
+$h3-size: 16px;
+
+
+
+// P size
+// Again, here are some pre-defined paragraph sizes.
+// How to use it: "font-size: $main-p;"
+
+$main-p: 12px;
+$small-p: 10px;
+
+
+
+// Font family
+// Here I have made variables for font families. 
+// How to use it: "font-family: $serif;"
+
+$serif: 'Roboto Slab', serif;
+$sans-serif: 'Work Sans', sans-serif;
+
+
+
+// Font weight
+// Here I have made a map for font weights. 
+// Maps in Sass hold pairs of keys and values, and make it easy to look up a value by its corresponding key.
+// This map is called "$font-weight" and it contains four keys; "slim" "regular" "medium" and "bold". 
+// Each key holds a value; "200" "400" "500" and "700".
+// How to use it: "font-weight: map-get($font-weight, bold);"
+
+$font-weight: (
+    "slim": 200,
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+);

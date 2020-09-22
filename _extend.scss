@@ -1,0 +1,38 @@
+// Extend
+// Extend works a bit like mixins but you cant add arguments. Like mixin, you can make some common code repeated more easily. 
+// There are two ways I learned so far to use the @extend.
+// First; lets say I have a few divs I want to make into a colored container. They both share the same properties of width and height.
+// I can select the class name (.container) and add the rules.
+
+.container {
+    width: 100%;
+    height: 200px;
+}
+
+// Then I have another div with the class name ".another_container" that I want to share the same properties of ".container".
+// Now I can add "@extend" and then the name of the selector (.container)
+// After that I can add other details that makes this one different from the other, like color and so on.
+
+.another_container {
+    @extend .container;
+    background-color: gold;
+}
+
+// Another way is to make a selector that will not show up in the vanilla CSS file. 
+// The rules will only follow if it is mentioned somewhere using @include.
+// How? First we use the "%" sign and make a name for the selector. 
+// In this case I named it "font-style" and gave it a font size and weight.
+
+%font-style {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+// Then we run into something we want to have the properties of $font-style.
+// We simply just have to add "@extend" and then %font-style;
+// Simple yet effective!
+
+.main_text {
+    @extend %font-style;
+    color: gold;
+ }
